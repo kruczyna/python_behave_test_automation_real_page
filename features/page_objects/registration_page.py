@@ -24,7 +24,7 @@ class RegistrationPage(BasePage):
     def navigate_to_register_form(self) -> None:
         self.visit()
         self.find_element(*self.login_link).click()
-        assert "login" in self.get_current_url()
+        self.wait_for_element(self.register_button)
         self.find_element(*self.register_button).click()
         self.wait_for_element(self.password_field)
         self.wait_for_element(self.email_field)

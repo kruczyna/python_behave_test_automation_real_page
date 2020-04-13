@@ -1,7 +1,10 @@
 from behave import given, when, then
 from behave.runner import Context
 
+from features.helpers.decorators import delete_all_cookies
 
+
+@delete_all_cookies
 @given('User navigates to registration form')
 def navigate_to_register_form(context: Context) -> None:
     context.register_page.navigate_to_register_form()
