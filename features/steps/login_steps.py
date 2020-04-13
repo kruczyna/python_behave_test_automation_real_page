@@ -26,3 +26,8 @@ def login_form_error(context: Context) -> None:
 @then('User sees login notification error')
 def login_notification_error(context: Context) -> None:
     context.login_page.login_notification_error()
+
+
+@then('User is logged into his account')
+def get_user_account(context: Context) -> None:
+    context.login_page.get_user_account()

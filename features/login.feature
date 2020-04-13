@@ -6,6 +6,10 @@ Feature: Login page
   Background:
     Given User navigates to login form
 
+  Scenario: As a user I want to login with valid credentials
+    Given User submits "victoria@gmail.com" and "Testtest1234"
+    Then User is logged into his account
+
   Scenario Outline: As a user I am not able to login with invalid credentials
     Given User submits "<username>" and "<password>"
     Then User sees login notification error
