@@ -3,6 +3,7 @@ from selenium import webdriver
 from features.page_objects.login_page import LoginPage
 from features.page_objects.registration_page import RegistrationPage
 
+
 def before_all(context):
     context.driver = webdriver.Chrome(
         executable_path='/usr/local/bin/chromedriver'
@@ -16,4 +17,3 @@ def before_all(context):
 
 def after_all(context):
     context.driver.quit()
-
