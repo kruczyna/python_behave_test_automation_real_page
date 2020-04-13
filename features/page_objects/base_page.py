@@ -31,6 +31,11 @@ class BasePage:
             expected_conditions.visibility_of_element_located(*locator)
         )
 
+    def wait_for_url(self, value) -> None:
+        WebDriverWait(self.browser, 5).until(
+            expected_conditions.url_contains(value)
+        )
+
     @staticmethod
     def generate_fake_email() -> str:
         return fake.email()

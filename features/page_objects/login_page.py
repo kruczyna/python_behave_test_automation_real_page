@@ -12,7 +12,7 @@ class LoginPage(BasePage):
     password_field_error = (By.CSS_SELECTOR, '#password + div.input-base__validation-error-message')
     incorrect_credentials_notification = (By.CSS_SELECTOR, '.notification--error')
     user_email = (By.CSS_SELECTOR, '.menu__user')
-    logout_link = (By.CSS_SELECTOR, 'a[href="#/login"]')
+    logout_link = (By.CSS_SELECTOR, 'div.menu__list-container > ul > a:nth-child(3)')
 
     def navigate_to_login_form(self) -> None:
         self.visit()
@@ -38,4 +38,7 @@ class LoginPage(BasePage):
     def get_user_account(self) -> None:
         self.find_element(*self.user_email)
         self.find_element(*self.logout_link)
-        assert "login" not in self.get_current_url()
+        self.wait_for_url("profile-settings")
+
+    def user_logout(self) -> None:
+        self.find_element(*self.logout_link).click()

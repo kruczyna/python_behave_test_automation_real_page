@@ -10,10 +10,6 @@ Feature: Registration page
     When User submits an empty registration form
     Then User sees which fields are required
 
-  Scenario: As a user I want to register an account
-    When User submits valid register credentials
-    Then I navigate to profile settings
-
   Scenario Outline: As a user I want to have register form fields validated
     When User inputs invalidly formatted "<email>" and "<password>"
     Then User sees register form validation error
@@ -24,3 +20,7 @@ Feature: Registration page
       | valid@email.address | short                                            |
       | test                | validPassword                                    |
       | valid@email.address | 123456789012345678901234567890_too_long_password |
+
+  Scenario: As a user I want to register an account
+    When User submits valid register credentials
+    Then I navigate to profile settings

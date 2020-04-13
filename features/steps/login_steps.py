@@ -1,6 +1,8 @@
 from behave import given, use_step_matcher, then
 from behave.runner import Context
 
+from features.helpers.decorators import delete_all_cookies
+
 use_step_matcher("re")
 
 
@@ -13,6 +15,7 @@ def navigate_to_login_form(context: Context) -> None:
 # If you don't want to have empty values in a scenario outline,
 # you can map regular variables within step name.
 # In this case "{username}" and "{password}"
+@delete_all_cookies
 @given('User submits "([^"]*)" and "([^"]*)"')
 def submit_login_credentials(context: Context, username: str, password: str) -> None:
     context.login_page.submit_login_credentials(username, password)
@@ -31,3 +34,4 @@ def login_notification_error(context: Context) -> None:
 @then('User is logged into his account')
 def get_user_account(context: Context) -> None:
     context.login_page.get_user_account()
+    context.login_page.user_logout()
