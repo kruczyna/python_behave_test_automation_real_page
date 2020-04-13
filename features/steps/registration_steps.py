@@ -29,3 +29,10 @@ def get_register_form_error(context: Context) -> None:
 
 @when('User submits valid register credentials')
 def submit_register_form(context: Context) -> None:
+    context.register_page.accept_agreements_checkoboxes()
+    context.register_page.submit_register_form()
+
+
+@then('I navigate to profile settings')
+def navigate_to_profile_settings(context: Context) -> None:
+    context.register_page.navigate_to_profile_settings()

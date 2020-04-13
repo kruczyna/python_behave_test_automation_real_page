@@ -9,6 +9,10 @@ def navigate_to_login_form(context: Context) -> None:
     context.login_page.navigate_to_login_form()
 
 
+# Used step matcher to match empty values.
+# If you don't want to have empty values in a scenario outline,
+# you can map regular variables within step name.
+# In this case "{username}" and "{password}"
 @given('User submits "([^"]*)" and "([^"]*)"')
 def submit_login_credentials(context: Context, username: str, password: str) -> None:
     context.login_page.submit_login_credentials(username, password)

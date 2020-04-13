@@ -12,6 +12,7 @@ Feature: Registration page
 
   Scenario: As a user I want to register an account
     When User submits valid register credentials
+    Then I navigate to profile settings
 
   Scenario Outline: As a user I want to have register form fields validated
     When User inputs invalidly formatted "<email>" and "<password>"
