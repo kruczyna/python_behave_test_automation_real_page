@@ -5,9 +5,7 @@ from features.page_objects.base_page import BasePage
 
 
 class LoginPage(BasePage):
-    login_link = (By.CSS_SELECTOR, '.menu--desktop a:last-child')
     login_button = (By.CSS_SELECTOR, '.page-login__submit-button')
-    rodo_button = (By.CSS_SELECTOR, '.rodo-notification__button')
     username_field = (By.CSS_SELECTOR, '#username')
     username_field_error = (By.CSS_SELECTOR, '#username + div.input-base__validation-error-message')
     password_field = (By.CSS_SELECTOR, '#password')
