@@ -1,6 +1,7 @@
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 
+from features.helpers import storage
 from features.page_objects.base_page import BasePage
 
 
@@ -42,3 +43,11 @@ class LoginPage(BasePage):
 
     def user_logout(self) -> None:
         self.find_element(*self.logout_link).click()
+
+    def login_to_fitatu_web(self) -> None:
+        self.navigate_to_login_form()
+        self.find_element(*self.username_field).send_keys(storage.user_login)
+        self.find_element(*self.password_field).send_keys(storage.user_password)
+        if self.find_element(*self.rodo_button).is_displayed():
+            self.find_element(*self.rodo_button).click()
+        self.find_element(*self.login_button).click()

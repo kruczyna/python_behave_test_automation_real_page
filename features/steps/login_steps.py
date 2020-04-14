@@ -1,4 +1,4 @@
-from behave import given, use_step_matcher, then
+from behave import given, use_step_matcher, then, step
 from behave.runner import Context
 
 from features.helpers.decorators import delete_all_cookies
@@ -34,4 +34,9 @@ def login_notification_error(context: Context) -> None:
 @then('User is logged into his account')
 def get_user_account(context: Context) -> None:
     context.login_page.get_user_account()
+    context.login_page.user_logout()
+
+
+@step('User logs out of the application')
+def user_logout(context:Context) -> None:
     context.login_page.user_logout()

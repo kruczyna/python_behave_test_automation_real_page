@@ -1,4 +1,4 @@
-Feature: Registration page
+Feature: Register page
   In order to be able to register an account
   As a user
   I want to fill out registration form
