@@ -43,3 +43,7 @@ class BasePage:
     @staticmethod
     def generate_fake_password() -> str:
         return fake.password()
+
+    def page_has_loaded(self):
+        page_state = self.browser.execute_script('return document.readyState;')
+        return page_state == 'complete'
